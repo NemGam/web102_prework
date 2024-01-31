@@ -1,7 +1,7 @@
 //1/30/2024
 //Started at 4:33 PM, stopped at 5:50 PM, cont at 6:30 PM, stopped at 7:44 PM
 //1/31/2024
-//Started at 12:39 PM
+//Started at 12:39 PM, stopped at 1:23 PM, cont at 3:00 PM
 /*****************************************************************************
  * Challenge 2: Review the provided code. The provided code includes:
  * -> Statements that import data from games.js
@@ -174,12 +174,27 @@ allBtn?.addEventListener("click", showAllGames);
 const descriptionContainer = document.getElementById("description-container");
 
 // use filter or reduce to count the number of unfunded games
-
+const unfundedNumber = GAMES_JSON.reduce((acc, game) => {
+    return acc + (game.pledged < game.goal? 1 : 0);
+}, 0);
 
 // create a string that explains the number of unfunded games using the ternary operator
-
+const displayStr = `A total of $${totalRaised.toLocaleString('en-US')} has been raised for 
+    ${GAMES_JSON.length.toLocaleString('en-US')} games. 
+    ${unfundedNumber > 0? 
+        //If there are any unfunded games
+        `Currently, ${unfundedNumber.toLocaleString('en-US')} 
+        ${unfundedNumber == 1? "game" : "games"} ${unfundedNumber == 1? "remains" : "remain"} unfunded.
+        We need your help to fund ${unfundedNumber == 1? "this" : "these"} amazing ${unfundedNumber == 1? "game" : "games"}!`
+        //If there are no unfunded games
+        : "All games were funded successfully! Thank you for your support!"}
+`;
 
 // create a new DOM element containing the template string and append it to the description container
+const descriptionDiv = document.createElement('div');
+descriptionDiv.innerHTML = displayStr;
+descriptionContainer?.append(descriptionDiv);
+
 
 /************************************************************************************
  * Challenge 7: Select & display the top 2 games
