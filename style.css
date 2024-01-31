@@ -19,9 +19,18 @@ body {
     margin-top: -10px;
 }
 
+
 .game-progress{
     font-size: 80%;
     font-weight: bold;
+}
+
+.game-desc{
+    padding-bottom: 10%;   
+}
+
+.game-title{
+    font-size: 80%;
 }
 
 .stats-container {
