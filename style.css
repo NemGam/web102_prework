@@ -19,8 +19,19 @@ body {
     margin-top: -10px;
 }
 
+.game-progress{
+    font-size: 80%;
+    font-weight: bold;
+}
+
 .stats-container {
     display: flex;
+    align-items: flex;
+}
+
+.stats-container:hover{
+    cursor: pointer;
+    box-shadow: 0 0 30px lightblue;
 }
 
 .stats-card {
