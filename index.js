@@ -1,7 +1,7 @@
 //1/30/2024
 //Started at 4:33 PM, stopped at 5:50 PM, cont at 6:30 PM, stopped at 7:44 PM
 //1/31/2024
-//Started at 12:39 PM, stopped at 1:23 PM, cont at 3:00 PM
+//Started at 12:39 PM, stopped at 1:23 PM, cont at 3:00 PM, stopped at 4:25PM
 /*****************************************************************************
  * Challenge 2: Review the provided code. The provided code includes:
  * -> Statements that import data from games.js
@@ -209,7 +209,17 @@ const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
 });
 
 // use destructuring and the spread operator to grab the first and second games
+const [first, second, ...rest] = sortedGames;
+console.log(first, second);
 
 // create a new element to hold the name of the top pledge game, then append it to the correct element
+const fdiv = document.createElement('div');
+fdiv.classList.add('top-game-title')
+fdiv.innerHTML = first.name;
+firstGameContainer?.append(fdiv);
 
 // do the same for the runner up item
+const sdiv = document.createElement('div');
+sdiv.classList.add('top-game-title')
+sdiv.innerHTML = second.name;
+secondGameContainer?.append(sdiv);

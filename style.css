@@ -31,6 +31,7 @@ body {
 
 .game-title{
     font-size: 80%;
+    font-weight: bold;
 }
 
 .stats-container {
@@ -45,6 +46,11 @@ body {
     margin: 1%;
     width: 100%;
     text-align: center;
+}
+
+.top-game-title {
+    font-size: 150%;
+    font-weight: bold;
 }
 
 #num-contributions, #total-raised, #num-games {
