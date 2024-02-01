@@ -68,13 +68,11 @@ function addGamesToPage(games) {
         // append the game to the games-container
         gamesContainer?.append(newDiv);
     }
-        
-
 }
 
 // call the function we just defined using the correct variable
 // later, we'll call this function using a different list of games
-addGamesToPage(GAMES_JSON);
+//addGamesToPage(GAMES_JSON); -left here for the sake of challenge
 
 /*************************************************************************************
  * Challenge 4: Create the summary statistics at the top of the page displaying the
@@ -125,6 +123,12 @@ if (gamesCard) gamesCard.innerHTML = `
  * Skills used: functions, filter
 */
 
+// select each button in the "Our Games" section
+const unfundedBtn = document.getElementById("unfunded-btn");
+const fundedBtn = document.getElementById("funded-btn");
+const allBtn = document.getElementById("all-btn");
+
+
 // show only games that do not yet have enough funding
 function filterUnfundedOnly() {
     deleteChildElements(gamesContainer);
@@ -134,6 +138,10 @@ function filterUnfundedOnly() {
 
     // use the function we previously created to add the unfunded games to the DOM
     addGamesToPage(unfundedOnly);
+
+    unfundedBtn?.classList.add("selected-button");
+    fundedBtn?.classList.remove("selected-button");
+    allBtn?.classList.remove("selected-button");
 }
 
 // show only games that are fully funded
@@ -145,6 +153,10 @@ function filterFundedOnly() {
 
     // use the function we previously created to add unfunded games to the DOM
     addGamesToPage(fundedOnly);
+
+    fundedBtn?.classList.add("selected-button");
+    unfundedBtn?.classList.remove("selected-button");
+    allBtn?.classList.remove("selected-button");
 }
 
 // show all games
@@ -153,17 +165,19 @@ function showAllGames() {
 
     // add all games from the JSON data to the DOM
     addGamesToPage(GAMES_JSON);
+
+    allBtn?.classList.add("selected-button");
+    unfundedBtn?.classList.remove("selected-button");
+    fundedBtn?.classList.remove("selected-button");
 }
 
-// select each button in the "Our Games" section
-const unfundedBtn = document.getElementById("unfunded-btn");
-const fundedBtn = document.getElementById("funded-btn");
-const allBtn = document.getElementById("all-btn");
 
 // add event listeners with the correct functions to each button
 unfundedBtn?.addEventListener("click", filterUnfundedOnly);
 fundedBtn?.addEventListener("click", filterFundedOnly);
 allBtn?.addEventListener("click", showAllGames);
+
+showAllGames();
 
 /*************************************************************************************
  * Challenge 6: Add more information at the top of the page about the company.
