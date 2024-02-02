@@ -84,11 +84,29 @@ body {
     width: 300px;
     text-align: center;
     border-radius: 7px;
+    opacity: 0;
+    visibility: collapse;
 }
 
 .game-card:hover {
     cursor: pointer;
     box-shadow: 0 0 30px lightblue;
+}
+
+.list-element{
+    transform-origin: 50% 50%;
+	animation: append-animate .3s linear;
+    opacity: 1;
+    visibility: visible;
+}
+
+@keyframes append-animate {
+	from {
+		transform: scale(0);
+	}
+	to {
+		transform: scale(1);
+	}
 }
 
 #button-container {

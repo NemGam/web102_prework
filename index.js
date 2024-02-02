@@ -33,14 +33,14 @@ const gamesContainer = document.getElementById("games-container");
 function addGamesToPage(games) {
 
     // loop over each item in the data
-    for (const game of games){
-        
+    for (let i = 0; i < games.length; ++i){
+        const game = games[i];
         // create a new div element, which will become the game card
         let newDiv  = document.createElement('div');
 
         // add the class game-card to the list
         newDiv.classList.add("game-card");
-
+        window.setTimeout(() => newDiv.classList.add('list-element'), 50 * i);
         // set the inner HTML using a template literal to display some info 
         // about each game
         // TIP: if your images are not displaying, make sure there is space
@@ -224,7 +224,6 @@ const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
 
 // use destructuring and the spread operator to grab the first and second games
 const [first, second, ...rest] = sortedGames;
-console.log(first, second);
 
 // create a new element to hold the name of the top pledge game, then append it to the correct element
 const fdiv = document.createElement('div');
