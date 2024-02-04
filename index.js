@@ -31,7 +31,7 @@ const gamesContainer = document.getElementById("games-container");
 
 // create a function that adds all data from the games array to the page
 function addGamesToPage(games) {
-
+    sort(games);
     // loop over each item in the data
     for (let i = 0; i < games.length; ++i){
         const game = games[i];
@@ -59,7 +59,12 @@ function addGamesToPage(games) {
             </div>
 
             <div class = "game-progress"> 
-                $${game.pledged}/${game.goal} collected
+                $${game.pledged.toLocaleString('en-US')}/${game.goal.toLocaleString('en-US')} 
+                collected (${Math.round((game.pledged/game.goal) * 10000) / 100}%)
+            </div>
+
+            <div class = "game-backers"> 
+                Backed by ${game.backers} ${game.backers == 1? "user" : "users"}
             </div>
         `;
 
@@ -127,7 +132,10 @@ if (gamesCard) gamesCard.innerHTML = `
 const unfundedBtn = document.getElementById("unfunded-btn");
 const fundedBtn = document.getElementById("funded-btn");
 const allBtn = document.getElementById("all-btn");
+const sortOptions = document.getElementById("sort-select");
 
+// for sorting purposes
+let gamesList = GAMES_JSON;
 
 // show only games that do not yet have enough funding
 function filterUnfundedOnly() {
@@ -135,7 +143,7 @@ function filterUnfundedOnly() {
 
     // use filter() to get a list of games that have not yet met their goal
     const unfundedOnly = GAMES_JSON.filter((game) => game.pledged < game.goal);
-
+    gamesList = unfundedOnly;
     // use the function we previously created to add the unfunded games to the DOM
     addGamesToPage(unfundedOnly);
 
@@ -150,7 +158,7 @@ function filterFundedOnly() {
 
     // use filter() to get a list of games that have met or exceeded their goal
     const fundedOnly = GAMES_JSON.filter((game) => game.pledged >= game.goal);
-
+    gamesList = fundedOnly;
     // use the function we previously created to add unfunded games to the DOM
     addGamesToPage(fundedOnly);
 
@@ -162,7 +170,7 @@ function filterFundedOnly() {
 // show all games
 function showAllGames() {
     deleteChildElements(gamesContainer);
-
+    gamesList = GAMES_JSON;
     // add all games from the JSON data to the DOM
     addGamesToPage(GAMES_JSON);
 
@@ -171,11 +179,47 @@ function showAllGames() {
     fundedBtn?.classList.remove("selected-button");
 }
 
+// decides what sort to use
+function sort(array){
+    switch(sortOptions?.value){
+        //A -> Z
+        case "A->Z": 
+            array = array.sort((a, b) => a.name > b.name? 1 : -1);
+            break;
+        case "Z->A":
+            array = array.sort((a, b) => a.name > b.name? -1 : 1);
+            break;
+        case "MostRaised":
+            array = array.sort((a, b) => a.pledged > b.pledged? -1 : 1);
+            break;
+        case "LeastRaised":
+            array = array.sort((a, b) => a.pledged > b.pledged? 1 : -1);
+            break;
+        case "MostBacked":
+            array = array.sort((a, b) => a.backers > b.backers? -1 : 1);
+            break;
+        case "LeastBacked":
+            array = array.sort((a, b) => a.backers > b.backers? 1 : -1);
+            break;
+        case "MostCompleted":
+            array = array.sort((a, b) => a.pledged/a.goal > b.pledged/b.goal? -1 : 1);
+            break;
+        case "LeastCompleted":
+            array = array.sort((a, b) => a.pledged/a.goal > b.pledged/b.goal? 1 : -1);
+            break;
+    }
+}
+
 
 // add event listeners with the correct functions to each button
 unfundedBtn?.addEventListener("click", filterUnfundedOnly);
 fundedBtn?.addEventListener("click", filterFundedOnly);
 allBtn?.addEventListener("click", showAllGames);
+sortOptions?.addEventListener("change", () => {
+    sort(gamesList);
+    deleteChildElements(gamesContainer);
+    addGamesToPage(gamesList);
+});
 
 showAllGames();
 

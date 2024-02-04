@@ -21,7 +21,6 @@
     </div>
 
     <!-- top games & other interesting stats -->
-    <h1>Stats</h1>
     <div class="stats-container">
         <div class="stats-card">
             <h3>Individual Contributions</h3>
@@ -52,6 +51,16 @@
     <h2>Our Games</h2>
     <p>Check out each of our games below!</p>
     <div id="button-container">
+        <select id="sort-select">
+            <option value="A->Z" selected="selected">A-Z</option>
+            <option value="Z->A">Z-A</option>
+            <option value="MostRaised">Most Raised</option>
+            <option value="LeastRaised">Least Raised</option>
+            <option value="MostBacked">Most Backed</option>
+            <option value="LeastBacked">Least Backed</option>
+            <option value="MostCompleted">Most Completed</option>
+            <option value="LeastCompleted">Least Completed</option>
+        </select>
         <button id="unfunded-btn">Show Unfunded Only</button>
         <button id="funded-btn">Show Funded Only</button>
         <button id="all-btn">Show All Games</button>

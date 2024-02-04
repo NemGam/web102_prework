@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Cabin';
-    background-color: #758190;
+    background-color: #808fa1;
 }
 
 #tentacles {
@@ -24,7 +24,7 @@ body {
     text-align: center;
 }
 
-.game-progress{
+.game-progress, .game-backers{
     font-size: 80%;
     font-weight: bold;
 }
@@ -54,6 +54,7 @@ body {
     margin: 1%;
     width: 100%;
     text-align: center;
+    box-shadow: 10px 10px 30px rgb(31, 31, 31);
 }
 
 .top-game-title {
@@ -117,7 +118,7 @@ body {
     background-color: lightblue;
 }
 
-button {
+button, select, option{
     font-family: 'Cabin';
     border: none;
     padding: 1%;
