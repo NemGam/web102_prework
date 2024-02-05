@@ -133,6 +133,7 @@ const unfundedBtn = document.getElementById("unfunded-btn");
 const fundedBtn = document.getElementById("funded-btn");
 const allBtn = document.getElementById("all-btn");
 const sortOptions = document.getElementById("sort-select");
+const searchInput = document.getElementById('search');
 
 // for sorting purposes
 let gamesList = GAMES_JSON;
@@ -169,6 +170,9 @@ function filterFundedOnly() {
 
 // show all games
 function showAllGames() {
+    if (searchInput) searchInput.value = "";
+    if (fundedBtn) fundedBtn.disabled = false;
+    if (unfundedBtn) unfundedBtn.disabled = false;
     deleteChildElements(gamesContainer);
     gamesList = GAMES_JSON;
     // add all games from the JSON data to the DOM
@@ -179,9 +183,20 @@ function showAllGames() {
     fundedBtn?.classList.remove("selected-button");
 }
 
-// search value in the given array
-function search(arr, value){
+// search value in the given array 
+function searchGames(arr, value){
     if (!value || !arr) return;
+    const searchRes = GAMES_JSON.filter((game) => game.name.includes(value));
+    if (searchRes.length == 0){
+        alert("No games found!");
+        return;
+    }
+
+    if (fundedBtn) fundedBtn.disabled = true;
+    if (unfundedBtn) unfundedBtn.disabled = true;
+    deleteChildElements(gamesContainer);
+    gamesList = searchRes;
+    addGamesToPage(searchRes);
 }
 
 // sort games based on the chosen option
@@ -228,7 +243,6 @@ sortOptions?.addEventListener("change", () => {
 
 showAllGames();
 
-const searchInput = document.getElementById('search');
 searchInput?.addEventListener("keydown", (ev) =>{
     if (ev.key == 'Enter'){
         if (!searchInput.value) return;
@@ -236,7 +250,7 @@ searchInput?.addEventListener("keydown", (ev) =>{
         allBtn?.classList.remove("selected-button");
         unfundedBtn?.classList.remove("selected-button");
         fundedBtn?.classList.remove("selected-button");
-        search(gamesList, searchInput.value);
+        searchGames(gamesList, searchInput.value);
     }
 });
 
