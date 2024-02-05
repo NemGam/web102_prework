@@ -179,7 +179,7 @@ function showAllGames() {
     fundedBtn?.classList.remove("selected-button");
 }
 
-// decides what sort to use
+// sort games based on the chosen option
 function sort(array){
     switch(sortOptions?.value){
         //A -> Z
@@ -243,13 +243,13 @@ const displayStr = `A total of $${totalRaised.toLocaleString('en-US')} has been 
         //If there are any unfunded games
         `Currently, ${unfundedNumber.toLocaleString('en-US')} 
         ${unfundedNumber == 1? "game" : "games"} ${unfundedNumber == 1? "remains" : "remain"} unfunded.
-        We need your help to fund ${unfundedNumber == 1? "this" : "these"} amazing ${unfundedNumber == 1? "game" : "games"}!`
+        <p>We need your help to fund ${unfundedNumber == 1? "this" : "these"} amazing ${unfundedNumber == 1? "game" : "games"}!</p>`
         //If there are no unfunded games
         : "All games were funded successfully! Thank you for your support!"}
 `;
 
 // create a new DOM element containing the template string and append it to the description container
-const descriptionDiv = document.createElement('div');
+const descriptionDiv = document.createElement('h3');
 descriptionDiv.innerHTML = displayStr;
 descriptionContainer?.append(descriptionDiv);
 
