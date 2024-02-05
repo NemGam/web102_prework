@@ -52,13 +52,13 @@ body {
 }
 
 .stats-card {
-    background-color: #a8b0bc;
+    background-color: #b8c7dc;
     border-radius: 7px;
     padding: 1%;
     margin: 1%;
     width: 100%;
     text-align: center;
-    box-shadow: 10px 10px 30px rgb(31, 31, 31);
+    box-shadow: 5px 5px 20px rgba(43, 43, 43, 0.262);
 }
 
 .our-games{
@@ -83,11 +83,11 @@ body {
 .game-img {
     width: 100%;
     border-radius: 5px;
-    box-shadow: 0 0 10px #FFFFFF;
+    box-shadow: 0 0 20px 5px #FFFFFF;
 }
 
 .game-card {
-    background-color: #FFFFFF;
+    background-color: #b8c7dc;
     padding: 1%;
     margin: 1%;
     width: 300px;
@@ -95,6 +95,7 @@ body {
     border-radius: 7px;
     opacity: 0;
     visibility: collapse;
+    box-shadow: 5px 5px 20px rgba(43, 43, 43, 0.262);
 }
 
 .game-card:hover {
@@ -134,12 +135,17 @@ body {
     cursor: pointer;
 }
 
+button:disabled{
+    box-shadow: none;
+}
+
 button, select, option, #search{
     font-family: 'Roboto';
     border: none;
     padding: 1%;
     margin: 1%;
     border-radius: 7px;
+    box-shadow: 5px 5px 20px rgba(43, 43, 43, 0.262);
 }
 
 button:hover:enabled{
