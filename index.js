@@ -135,7 +135,7 @@ const allBtn = document.getElementById("all-btn");
 const sortOptions = document.getElementById("sort-select");
 const searchInput = document.getElementById('search');
 
-// for sorting purposes
+// currently displayed games list
 let gamesList = GAMES_JSON;
 
 // show only games that do not yet have enough funding

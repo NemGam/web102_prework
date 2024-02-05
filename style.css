@@ -126,6 +126,13 @@ body {
     background-color: lightblue;
 }
 
+#search{
+    cursor: text;
+}
+
+#sort-select{
+    cursor: pointer;
+}
 
 button, select, option, #search{
     font-family: 'Roboto';
@@ -135,12 +142,12 @@ button, select, option, #search{
     border-radius: 7px;
 }
 
-button:hover{
+button:hover:enabled{
     cursor: pointer;
     box-shadow: 0 0 30px lightblue;
 }
 
-button:active{
+button:active:enabled{
     cursor: pointer;
     box-shadow: 0 0 30px rgb(135, 168, 179);
     background-color: rgb(209, 209, 209);
