@@ -1,7 +1,3 @@
-//1/30/2024
-//Started at 4:33 PM, stopped at 5:50 PM, cont at 6:30 PM, stopped at 7:44 PM
-//1/31/2024
-//Started at 12:39 PM, stopped at 1:23 PM, cont at 3:00 PM, stopped at 4:25PM
 /*****************************************************************************
  * Challenge 2: Review the provided code. The provided code includes:
  * -> Statements that import data from games.js
