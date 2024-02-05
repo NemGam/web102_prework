@@ -54,7 +54,7 @@ I am not very familiar with keyframe system in css, so it was an interesting exp
 
 ## License
 
-    Copyright [2024] [Vladislav Krukhmalev]
+    Copyright 2024 Vladislav Krukhmalev
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
