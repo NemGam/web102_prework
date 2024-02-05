@@ -10,20 +10,20 @@ Time spent: **~11.5** hours spent in total _(including reading all the challenge
 
 The following **required** functionality is completed:
 
-* ✅ The introduction section explains the background of the company and how many games remain unfunded.
-* ✅ The Stats section includes information about the total contributions and dollars raised as well as the top two most funded games.
-* ✅ The Our Games section initially displays all games funded by Sea Monster Crowdfunding
-* ✅ The Our Games section has three buttons that allow the user to display only unfunded games, only funded games, or all games.
+* [x] The introduction section explains the background of the company and how many games remain unfunded.
+* [x] The Stats section includes information about the total contributions and dollars raised as well as the top two most funded games.
+* [x] The Our Games section initially displays all games funded by Sea Monster Crowdfunding
+* [x] The Our Games section has three buttons that allow the user to display only unfunded games, only funded games, or all games.
 
 The following **optional** features are implemented:
 
-* ✅ The ability to search for specific games.
-* ✅ The navigation bar in the header.
-* ✅ The ability to sort the games with 8 options.
-* ✅ The custom icon and name of the website.
-* ✅ If all the games are funded, displays the special message.
-* ✅ Display of the games' goals' fulfillment percentages.
-* ✅ The following visual changes:
+* [x] The ability to search for specific games.
+* [x] The navigation bar in the header.
+* [x] The ability to sort the games with 8 options.
+* [x] The custom icon and name of the website.
+* [x] If all the games are funded, displays the special message.
+* [x] Display of the games' goals' fulfillment percentages.
+* [x] The following visual changes:
     * Buttons have a glow when hovered over.
     * Centered titles.
     * Animation for games list on search, filter and sort.
