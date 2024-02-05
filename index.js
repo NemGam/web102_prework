@@ -179,6 +179,11 @@ function showAllGames() {
     fundedBtn?.classList.remove("selected-button");
 }
 
+// search value in the given array
+function search(arr, value){
+    if (!value || !arr) return;
+}
+
 // sort games based on the chosen option
 function sort(array){
     switch(sortOptions?.value){
@@ -222,6 +227,18 @@ sortOptions?.addEventListener("change", () => {
 });
 
 showAllGames();
+
+const searchInput = document.getElementById('search');
+searchInput?.addEventListener("keydown", (ev) =>{
+    if (ev.key == 'Enter'){
+        if (!searchInput.value) return;
+        // unselect all the buttons
+        allBtn?.classList.remove("selected-button");
+        unfundedBtn?.classList.remove("selected-button");
+        fundedBtn?.classList.remove("selected-button");
+        search(gamesList, searchInput.value);
+    }
+});
 
 /*************************************************************************************
  * Challenge 6: Add more information at the top of the page about the company.
