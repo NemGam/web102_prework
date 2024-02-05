@@ -4,7 +4,7 @@ Submitted by: Vladislav Krukhmalev
 
 **SeaCrowd** is a website for the company Sea Monster Crowdfunding that displays information about the games they have funded.
 
-Time spent: **~11.5** hours spent in total
+Time spent: **~11.5** hours spent in total _(including reading all the challenges and provided tutorials)_
 
 ## Required Features
 
