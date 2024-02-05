@@ -140,6 +140,7 @@ let gamesList = GAMES_JSON;
 
 // show only games that do not yet have enough funding
 function filterUnfundedOnly() {
+    if (unfundedBtn?.classList.contains("selected-button")) return;
     deleteChildElements(gamesContainer);
 
     // use filter() to get a list of games that have not yet met their goal
@@ -155,6 +156,7 @@ function filterUnfundedOnly() {
 
 // show only games that are fully funded
 function filterFundedOnly() {
+    if (fundedBtn?.classList.contains("selected-button")) return;
     deleteChildElements(gamesContainer);
 
     // use filter() to get a list of games that have met or exceeded their goal
@@ -163,13 +165,14 @@ function filterFundedOnly() {
     // use the function we previously created to add unfunded games to the DOM
     addGamesToPage(fundedOnly);
 
-    fundedBtn?.classList.add("selected-button");
     unfundedBtn?.classList.remove("selected-button");
+    fundedBtn?.classList.add("selected-button");
     allBtn?.classList.remove("selected-button");
 }
 
 // show all games
 function showAllGames() {
+    if (allBtn?.classList.contains("selected-button")) return;
     if (searchInput) searchInput.value = "";
     if (fundedBtn) fundedBtn.disabled = false;
     if (unfundedBtn) unfundedBtn.disabled = false;
@@ -178,15 +181,15 @@ function showAllGames() {
     // add all games from the JSON data to the DOM
     addGamesToPage(GAMES_JSON);
 
-    allBtn?.classList.add("selected-button");
     unfundedBtn?.classList.remove("selected-button");
     fundedBtn?.classList.remove("selected-button");
+    allBtn?.classList.add("selected-button");
 }
 
 // search value in the given array 
 function searchGames(arr, value){
     if (!value || !arr) return;
-    const searchRes = GAMES_JSON.filter((game) => game.name.includes(value));
+    const searchRes = GAMES_JSON.filter((game) => game.name.toUpperCase().includes(value.toUpperCase()));
     if (searchRes.length == 0){
         alert("No games found!");
         return;
@@ -245,6 +248,9 @@ showAllGames();
 
 searchInput?.addEventListener("keydown", (ev) =>{
     if (ev.key == 'Enter'){
+        // if empty search after a successfull search, just show everything
+        if (!searchInput.value && !allBtn?.classList.contains("selected-button")) 
+            showAllGames();
         if (!searchInput.value) return;
         // unselect all the buttons
         allBtn?.classList.remove("selected-button");

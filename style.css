@@ -83,7 +83,7 @@ body {
 .game-img {
     width: 100%;
     border-radius: 5px;
-    box-shadow: 0 0 20px 5px #FFFFFF;
+    box-shadow: 0 0 20px #FFFFFF;
 }
 
 .game-card {
