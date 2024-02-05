@@ -5,21 +5,39 @@
 }
 
 body {
-    background-color: #808fa1;
+    background-color: #899db6;
+}
+
+a{
+    font-size: 90%;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: rgb(32, 154, 191);
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 #tentacles {
     width: 50px;
 }
 
+.header-text{
+    padding-left: 25px;
+}
+
 .header {
     display: flex;
-    background-color: lightblue;
+    background-color: #b8c7dc;
+    box-shadow: 5px 5px 20px rgba(43, 43, 43, 0.262);
     padding: 1%;
     align-items: center;
     margin-left: -10px;
-    margin-right: -10px;
-    margin-top: -5px;
+    margin-right: -7px;
+    margin-top: -10px;
 }
 
 .title{
@@ -61,8 +79,14 @@ body {
     box-shadow: 5px 5px 20px rgba(43, 43, 43, 0.262);
 }
 
-.our-games{
+h1.our-games{
     text-align: center;
+    font-size: 220%;
+}
+
+h3.our-games{
+    text-align: center;
+    font-size: 120%;
 }
 
 .top-game-title {

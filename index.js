@@ -29,6 +29,33 @@ function deleteChildElements(parent) {
 // grab the element with the id games-container
 const gamesContainer = document.getElementById("games-container");
 
+// constructs the game info for the game-card
+function constructGameInfo(game){
+    const info = `
+    <img 
+        class = "game-img"
+        src = ${game.img} 
+    />
+    <div class = "game-title"> 
+        <h1>${game.name}</h1> 
+    </div>
+    
+    <div class = "game-desc"> 
+        ${game.description} 
+    </div>
+
+    <div class = "game-progress"> 
+        $${game.pledged.toLocaleString('en-US')}/${game.goal.toLocaleString('en-US')} 
+        collected (${Math.round((game.pledged/game.goal) * 10000) / 100}%)
+    </div>
+
+    <div class = "game-backers"> 
+        Backed by ${game.backers} ${game.backers == 1? "user" : "users"}
+    </div>
+    `;
+    return info;
+}
+
 // create a function that adds all data from the games array to the page
 function addGamesToPage(games) {
     sort(games);
@@ -45,30 +72,7 @@ function addGamesToPage(games) {
         // about each game
         // TIP: if your images are not displaying, make sure there is space
         // between the end of the src attribute and the end of the tag ("/>")
-        const info = `
-            <img 
-                class = "game-img"
-                src = ${game.img} 
-            />
-            <div class = "game-title"> 
-                <h1>${game.name}</h1> 
-            </div>
-            
-            <div class = "game-desc"> 
-                ${game.description} 
-            </div>
-
-            <div class = "game-progress"> 
-                $${game.pledged.toLocaleString('en-US')}/${game.goal.toLocaleString('en-US')} 
-                collected (${Math.round((game.pledged/game.goal) * 10000) / 100}%)
-            </div>
-
-            <div class = "game-backers"> 
-                Backed by ${game.backers} ${game.backers == 1? "user" : "users"}
-            </div>
-        `;
-
-        newDiv.innerHTML = info;
+        newDiv.innerHTML = constructGameInfo(game);
 
         // append the game to the games-container
         gamesContainer?.append(newDiv);
@@ -172,10 +176,12 @@ function filterFundedOnly() {
 
 // show all games
 function showAllGames() {
+    // prevent from pressing again if already selected
     if (allBtn?.classList.contains("selected-button")) return;
     if (searchInput) searchInput.value = "";
     if (fundedBtn) fundedBtn.disabled = false;
     if (unfundedBtn) unfundedBtn.disabled = false;
+
     deleteChildElements(gamesContainer);
     gamesList = GAMES_JSON;
     // add all games from the JSON data to the DOM
