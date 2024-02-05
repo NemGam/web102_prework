@@ -34,7 +34,11 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented features:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/Nva5Dne.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+New icon and name:
+![image](https://github.com/NemGam/web102_prework/assets/56624736/f43ff5f7-eef2-4fb4-9f38-6e623dd53b2c)
+
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with [ScreenToGif](https://www.screentogif.com/)
