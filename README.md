@@ -33,8 +33,8 @@ The following **optional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented features:
-
-<img src='https://i.imgur.com/Nva5Dne.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+[Imgur](https://imgur.com/Nva5Dne)
+<img src='https://i.imgur.com/Nva5Dne.gif' title='Video Walkthrough' alt='Video Walkthrough' />
 
 New icon and name:
 ![image](https://github.com/NemGam/web102_prework/assets/56624736/f43ff5f7-eef2-4fb4-9f38-6e623dd53b2c)
