@@ -4,7 +4,7 @@ Submitted by: Vladislav Krukhmalev
 
 **SeaCrowd** is a website for the company Sea Monster Crowdfunding that displays information about the games they have funded.
 
-Time spent: **~11.5** hours spent in total _(including reading all the challenges and provided tutorials)_
+Time spent: **~8.5** hours spent in total _(including reading all the challenges and provided tutorials)_
 
 ## Required Features
 
@@ -37,7 +37,7 @@ Here's a walkthrough of implemented features:
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
+GIF created with [ScreenToGif](https://www.screentogif.com/)
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
@@ -45,11 +45,12 @@ GIF created with ...
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+One of the main challenges I've encountered was the usage of animation for the games list.
+I am not very familiar with keyframe system in css, so it was an interesting experience to try and make it work.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2024] [Vladislav Krukhmalev]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
